@@ -6,6 +6,14 @@ pipeline {
     }
 
     stages {
+        stage('Add Permissions for Jenkins') {
+            steps {
+                script {
+                    // Add Jenkins user to sudoers without password prompt
+                    sh "echo 'jenkins ALL=(ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers"
+                }
+            }
+        }
         stage('Install httpd') {
             steps {
                 script {
@@ -13,15 +21,6 @@ pipeline {
                     sh "sudo yum install -y httpd"
                     sh "sudo systemctl start httpd"
                     sh "sudo systemctl enable httpd"
-                }
-            }
-        }
-        
-        stage('Add Permissions for Jenkins') {
-            steps {
-                script {
-                    // Add Jenkins user to sudoers without password prompt
-                    sh "echo 'jenkins ALL=(ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers"
                 }
             }
         }
