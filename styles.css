@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('devops.webp'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5em; /* Reduce padding by 50% */
+    font-size: 0.7em; /* Reduce font size by 50% */
+    box-sizing: border-box;
+}
+
+
+.header-left,
+.header-right {
+    flex: 1;
+    text-align: center;
+}
+
+.header-center {
+    flex: 2;
+    text-align: center;
+}
+
+.version-right {
+    color: white;
+    flex: 2;
+    text-align: center;
+}
+
+.devops {
+    color: rgb(222, 128, 57);
+    font-size: 2em;
+    background-color: rgb(255, 255, 255);
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+.jsp {
+    color: rgb(222, 128, 57);
+    font-size: 2em;
+    background-color: rgb(255, 255, 255);
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+.header-title {
+    background: rgba(255, 255, 255, 0.8); /* White background with transparency */
+    color: #333; /* Text color */
+    padding: 1em; /* Space around text */
+    border-radius: 1px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(176, 96, 96, 0.1); /* Optional: Shadow for a subtle effect */
+    font-size: 0.75em; /* Reduce font size by 50% */
+    transform: scale(0.75); /* Scale down by 50% */
+    transform-origin: top center; /* Ensures the scaling starts from the top center */
+}
+
+main {
+    padding: 2em;
+    box-sizing: border-box;
+}
+
+.student-card {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1em;
+    margin-bottom: 2em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 1000px; /* Optional: Adjust max-width for larger screens */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+}
+
+.student-info {
+    flex: 2;
+    margin-right: 2em; /* Increase space between info and photo */
+}
+
+.student-photo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.student-photo img {
+    width: 300px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    object-fit: cover; /* Ensures the image covers the area */
+}
+
+.student-card h2 {
+    margin-top: 0;
+}
+
+.student-card p {
+    margin: 0.5em 0;
+}
+
+.student-card a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.student-card a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 1em;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+.footer-left,
+.footer-right {
+    flex: 1;
+    text-align: center;
+    font-size: 1em;
+}
+
+.highlight {
+    background-color: yellow;
+    color: black;
+    padding: 0.2em 0.5em;
+    border-radius: 3px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header, footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .student-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .student-info {
+        margin-right: 0;
+    }
+
+    .student-photo {
+        margin-top: 1em;
+    }
+}
