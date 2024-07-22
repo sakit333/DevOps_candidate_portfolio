@@ -6,13 +6,22 @@ pipeline {
     }
 
     stages {
-        stage('Install httpd') {
+        stage('Check and Install httpd') {
             steps {
                 script {
-                    // Install httpd and start the service
-                    sh "sudo yum install -y httpd"
-                    sh "sudo systemctl start httpd"
-                    sh "sudo systemctl enable httpd"
+                    // Check if httpd is installed
+                    def httpdInstalled = sh(script: 'rpm -q httpd', returnStatus: true) == 0
+
+                    if (httpdInstalled) {
+                        echo 'httpd is already installed.'
+                    } else {
+                        echo 'httpd is not installed. Installing now...'
+                        sh "sudo yum install -y httpd"
+                    }
+
+                    // Ensure httpd service is started and enabled
+                    sh "sudo systemctl start httpd || true"
+                    sh "sudo systemctl enable httpd || true"
                 }
             }
         }
